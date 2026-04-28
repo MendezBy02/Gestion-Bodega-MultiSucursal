@@ -1,1 +1,1 @@
-Sistema de bodega Multi-Sucursal
+Frontend sistema multi-sucursal
