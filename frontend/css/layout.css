@@ -1,0 +1,209 @@
+/* ================================
+   RESET Y BASE GENERAL
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+}
+
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ================================
+   CONTENIDO PRINCIPAL
+================================ */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* ================================
+   HEADER
+================================ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  font-size: 26px;
+}
+
+.user {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ================================
+   GRID PRINCIPAL
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ================================
+   PANEL GENERAL
+================================ */
+.panel {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.panel h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* ITEMS INTERNOS */
+.item {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.item p {
+  font-weight: 600;
+}
+
+.item span {
+  font-size: 12px;
+  color: #666;
+}
+
+.item strong {
+  display: block;
+  margin-top: 5px;
+}
+
+/* ================================
+   ANIMACIONES GENERALES
+================================ */
+section {
+  animation: fade 0.3s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ================================
+   TOPBAR
+================================ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  /* 🔥 NUEVO */
+  background: white;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* IZQUIERDA */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* BOTONES */
+.menu-btn, .close-btn {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* OCULTAR UNO SEGÚN ESTADO */
+.close-btn {
+  display: none;
+}
+
+/* DERECHA */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; 
+  font-size: 13px;
+}
+
+.user-info small {
+  color: #666;
+  font-size: 11px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* ================================
+   SIDEBAR OCULTO
+================================ */
+.sidebar.oculto {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar.oculto * {
+  display: none;
+}
+
+/* ================================
+   CAMBIO DE BOTONES
+================================ */
+.sidebar.oculto ~ .main .menu-btn {
+  display: inline;
+}
+
+.sidebar.oculto ~ .main .close-btn {
+  display: none;
+}
+
+.main .menu-btn {
+  display: none;
+}
+
+.main .close-btn {
+  display: inline;
+}
+
+/* ANIMACIÓN */
+.sidebar {
+  transition: all 0.3s ease;
+}

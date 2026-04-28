@@ -1,0 +1,37 @@
+/* ================================
+   TABLA
+================================ */
+.tabla {
+  margin-top: 25px;
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tabla h2 {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ENCABEZADO */
+thead {
+  background: #f1f5f9;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* FILAS */
+td {
+  padding: 12px;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+}
