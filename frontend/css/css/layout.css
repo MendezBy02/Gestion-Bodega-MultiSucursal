@@ -1,0 +1,180 @@
+/* ================================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+}
+
+/* ================================
+   LAYOUT
+================================ */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* ================================
+   TOPBAR
+================================ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: white;
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+  backdrop-filter: blur(6px); 
+}
+
+/* IZQUIERDA */
+.topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* BOTÓN MENU */
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* DERECHA */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* USUARIO */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 13px;
+}
+
+.user-info small {
+  font-size: 11px;
+  color: #666;
+}
+
+/* AVATAR */
+.avatar {
+  width: 35px;
+  height: 35px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* ================================
+   ANIMACIONES
+================================ */
+section {
+  animation: fade 0.3s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ================================
+   RESPONSIVE (CLAVE 🔥)
+================================ */
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+}
+
+/* 🔥 CONTROL GLOBAL SIDEBAR */
+.sidebar {
+  transform: translateX(0);
+}
+
+/* CUANDO SE OCULTA */
+.sidebar.hide {
+  transform: translateX(-250px);
+}
+
+/* ================================
+   AJUSTE DINÁMICO MAIN
+================================ */
+
+.main {
+  flex: 1;
+  padding: 20px;
+
+  /* 🔥 animación suave */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* cuando sidebar visible */
+@media (min-width: 769px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .sidebar:not(.hide) + .main {
+    margin-left: 0;
+  }
+
+  /* cuando sidebar oculto */
+  .sidebar.hide + .main {
+    margin-left: -250px;
+  }
+}
+
+/* 🔥 SOLUCIÓN: TOPBAR ENCIMA DEL SIDEBAR EN MÓVIL */
+@media (max-width: 768px) {
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3000; /* MÁS ALTO QUE SIDEBAR */
+  }
+
+  .main {
+    padding-top: 70px; /* para que no tape contenido */
+  }
+
+}
