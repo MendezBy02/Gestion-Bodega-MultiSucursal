@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="menu-btn" onclick="toggleSidebar()">☰</div>
   <title>NexoTech Bodega</title>
   <link rel="icon" href="img/logo.png">
   <link rel="stylesheet" href="css/layout.css">
@@ -31,22 +33,22 @@
 
     <nav>
       <ul>
-        <li class="active" onclick="mostrarSeccion('dashboard')">
+        <li class="active" onclick="mostrarSeccion('dashboard', this)">
           <i data-lucide="layout-dashboard"></i>
           Dashboard
         </li>
 
-        <li onclick="mostrarSeccion('inventario')">
+        <li onclick="mostrarSeccion('inventario', this)">
           <i data-lucide="box"></i>
           Inventario
         </li>
 
-        <li onclick="mostrarSeccion('sucursales')">
+        <li onclick="mostrarSeccion('sucursales', this)">
           <i data-lucide="building"></i>
           Sucursales
         </li>
 
-        <li onclick="mostrarSeccion('transferencias')">
+        <li onclick="mostrarSeccion('transferencias', this)">
           <i data-lucide="arrow-left-right"></i>
           Transferencias
         </li>

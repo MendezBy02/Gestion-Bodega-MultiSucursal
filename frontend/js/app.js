@@ -1,4 +1,4 @@
-function mostrarSeccion(id) {
+function mostrarSeccion(id, element) {
 
   // Ocultar todas las secciones
   document.getElementById("dashboard").style.display = "none";
@@ -9,15 +9,13 @@ function mostrarSeccion(id) {
   // Mostrar la seleccionada
   document.getElementById(id).style.display = "block";
 
-  // Manejar activo del menú
+  // Quitar active a todos
   const items = document.querySelectorAll(".sidebar li");
   items.forEach(item => item.classList.remove("active"));
 
-  event.currentTarget.classList.add("active");
-}
+  // Activar el actual
+  element.classList.add("active");
 
-function toggleSidebar() {
-  const sidebar = document.querySelector(".sidebar");
-
-  sidebar.classList.toggle("oculto");
+  // 📱 En móvil: cerrar sidebar al hacer click
+  document.querySelector(".sidebar").classList.remove("show");
 }
