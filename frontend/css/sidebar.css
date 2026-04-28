@@ -1,0 +1,201 @@
+/* tipografía */
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* sidebar base */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e3a8a, #1e40af);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  transition: width 0.3s ease;
+}
+
+/* colapsado */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* header */
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+#toggleBtn {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* logo */
+.logo {
+  margin-bottom: 35px;
+}
+
+.logo h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.logo p {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ocultar texto al colapsar */
+.sidebar.collapsed .logo h2,
+.sidebar.collapsed .logo p {
+  display: none;
+}
+
+/* menú */
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* item */
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: rgba(255,255,255,0.9);
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* hover */
+.sidebar li:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* activo */
+.sidebar li.active {
+  background: #e5e7eb;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* iconos */
+.sidebar li i {
+  width: 22px;
+  height: 22px;
+}
+
+/* ocultar texto colapsado */
+.sidebar.collapsed li span {
+  display: none;
+}
+
+/* footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* logout */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fca5a5;
+}
+
+.logout-btn:hover {
+  background: rgba(255,0,0,0.1);
+}
+
+/* modo colapsado */
+.sidebar.collapsed ul {
+  align-items: center;
+}
+
+.sidebar.collapsed li {
+  justify-content: center;
+  padding: 14px 0;
+}
+
+.sidebar.collapsed li i {
+  width: 26px;
+  height: 26px;
+}
+
+.sidebar.collapsed li span {
+  display: none;
+}
+
+/* logout estilo rojo */
+.sidebar-footer li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: #f87171; /* rojo suave */
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+/* hover rojo */
+.sidebar-footer li:hover {
+  background: rgba(248, 113, 113, 0.15);
+  color: #ef4444; /* rojo más fuerte */
+}
+
+/* icono rojo */
+.sidebar-footer li i {
+  color: #f87171;
+}
+
+/* hover icono */
+.sidebar-footer li:hover i {
+  color: #ef4444;
+}
+
+.sidebar,
+.sidebar li,
+.sidebar span {
+  transition: all 0.3s ease;
+}
+
+.sidebar li.active {
+  position: relative;
+}
+
+.sidebar li:hover {
+  transform: translateX(3px);
+}
+
+.user-info {
+  margin-top: 330px; /* 🔥 ESTO LO BAJA */
+  padding: 15px;
+  color: white;
+  font-size: 16px;
+  
+}

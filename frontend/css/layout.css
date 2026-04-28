@@ -1,0 +1,35 @@
+/* reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* estructura principal */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* contenido */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* responsive base (no activo aún) */
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+}
+
