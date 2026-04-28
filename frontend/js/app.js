@@ -22,16 +22,28 @@ function mostrarSeccion(id, element) {
 }
 
 // =============================
-// BOTÓN SIDEBAR
+// SIDEBAR CONTROL
 // =============================
 const btn = document.getElementById("toggleBtn");
 const sidebar = document.getElementById("sidebar");
 
 btn.addEventListener("click", () => {
 
-  sidebar.classList.toggle("hide");
+  // 📱 SI ES MÓVIL
+  if (window.innerWidth <= 768) {
 
-  // cambiar icono
-  btn.textContent = sidebar.classList.contains("hide") ? "☰" : "✖";
+    sidebar.classList.toggle("show");
+
+    btn.textContent = sidebar.classList.contains("show") ? "✖" : "☰";
+
+  } 
+  // 💻 SI ES PC
+  else {
+
+    sidebar.classList.toggle("hide");
+
+    btn.textContent = sidebar.classList.contains("hide") ? "☰" : "✖";
+
+  }
 
 });

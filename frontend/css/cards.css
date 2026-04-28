@@ -1,3 +1,6 @@
+/* ================================
+   CARDS
+================================ */
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -28,9 +31,12 @@
   color: #888;
 }
 
-/* responsive */
 @media (max-width: 768px) {
   .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
     grid-template-columns: 1fr;
   }
 }

@@ -7,11 +7,7 @@
   color: white;
   padding: 20px;
 
-  /* 🔥 animación */
   transition: transform 0.3s ease-in-out;
-
-  /* PC: visible */
-  transform: translateX(0);
 }
 
 /* ================================
@@ -33,15 +29,6 @@
   border-radius: 10px;
 }
 
-.logo h2 {
-  font-size: 18px;
-}
-
-.logo p {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
 /* ================================
    MENÚ
 ================================ */
@@ -59,7 +46,6 @@
   margin-bottom: 10px;
 
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .sidebar li:hover {
@@ -69,16 +55,17 @@
 .sidebar li.active {
   background: #e5e7eb;
   color: #1e3a8a;
-  font-weight: bold;
-}
-
-.sidebar li i {
-  width: 20px;
-  height: 20px;
 }
 
 /* ================================
-    MODO MÓVIL 
+   PC (hide)
+================================ */
+.sidebar.hide {
+  transform: translateX(-250px);
+}
+
+/* ================================
+    Telefono
 ================================ */
 @media (max-width: 768px) {
 
@@ -89,12 +76,11 @@
     height: 100%;
     z-index: 2000;
 
-    /* 🔥 oculto por defecto */
     transform: translateX(-100%);
   }
 
-  /* 🔥 cuando se abre */
   .sidebar.show {
     transform: translateX(0);
   }
+
 }

@@ -1,3 +1,6 @@
+/* ================================
+   TABLA
+================================ */
 .tabla {
   margin-top: 25px;
   background: white;
@@ -15,7 +18,7 @@ table {
   border-collapse: collapse;
 }
 
-/* encabezado */
+/* ENCABEZADO */
 thead {
   background: #f1f5f9;
 }
@@ -26,14 +29,13 @@ th {
   font-size: 14px;
 }
 
-/* filas */
+/* FILAS */
 td {
   padding: 12px;
   font-size: 14px;
   border-top: 1px solid #eee;
 }
 
-/* responsive */
 @media (max-width: 768px) {
   table {
     display: block;
