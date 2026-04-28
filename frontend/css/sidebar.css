@@ -6,7 +6,12 @@
   background: linear-gradient(180deg, #1e3a8a, #1e40af);
   color: white;
   padding: 20px;
+
+  /* 🔥 animación */
   transition: transform 0.3s ease-in-out;
+
+  /* PC: visible */
+  transform: translateX(0);
 }
 
 /* ================================
@@ -70,4 +75,26 @@
 .sidebar li i {
   width: 20px;
   height: 20px;
+}
+
+/* ================================
+    MODO MÓVIL 
+================================ */
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 2000;
+
+    /* 🔥 oculto por defecto */
+    transform: translateX(-100%);
+  }
+
+  /* 🔥 cuando se abre */
+  .sidebar.show {
+    transform: translateX(0);
+  }
 }
