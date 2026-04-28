@@ -1,0 +1,91 @@
+/* ================================
+   SIDEBAR BASE
+================================ */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #1e3a8a, #1e40af);
+  color: white;
+  padding: 20px;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ================================
+   LOGO
+================================ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* ================================
+   MENÚ
+================================ */
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.sidebar li.active {
+  background: #e5e7eb;
+  color: #1e3a8a;
+}
+
+/* ================================
+   PC (hide)
+================================ */
+.sidebar.hide {
+  transform: translateX(-250px);
+}
+
+/* ================================
+    Telefono
+================================ */
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+
+    top: 70px; 
+    left: 0;
+
+    width: 250px;
+    height: calc(100% - 70px); 
+
+    z-index: 2000;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+}
