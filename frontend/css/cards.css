@@ -30,3 +30,13 @@
   font-size: 12px;
   color: #888;
 }
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

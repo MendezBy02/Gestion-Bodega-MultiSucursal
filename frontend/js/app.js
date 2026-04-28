@@ -1,21 +1,37 @@
+// CAMBIO DE SECCIONES
 function mostrarSeccion(id, element) {
 
-  // Ocultar todas las secciones
-  document.getElementById("dashboard").style.display = "none";
-  document.getElementById("inventario").style.display = "none";
-  document.getElementById("transferencias").style.display = "none";
-  document.getElementById("sucursales").style.display = "none";
+  const secciones = ["dashboard", "inventario", "transferencias", "sucursales"];
 
-  // Mostrar la seleccionada
+  secciones.forEach(sec => {
+    document.getElementById(sec).style.display = "none";
+  });
+
   document.getElementById(id).style.display = "block";
 
-  // Quitar active a todos
-  const items = document.querySelectorAll(".sidebar li");
-  items.forEach(item => item.classList.remove("active"));
+  document.querySelectorAll(".sidebar li").forEach(item =>
+    item.classList.remove("active")
+  );
 
-  // Activar el actual
-  element.classList.add("active");
+  if (element) element.classList.add("active");
 
-  // 📱 En móvil: cerrar sidebar al hacer click
-  document.querySelector(".sidebar").classList.remove("show");
+  // cerrar sidebar en móvil
+  document.getElementById("sidebar").classList.remove("show");
 }
+
+// BOTÓN SIDEBAR
+const btn = document.getElementById("toggleBtn");
+const sidebar = document.getElementById("sidebar");
+
+btn.addEventListener("click", () => {
+
+  sidebar.classList.toggle("hide");
+
+  // cambiar icono
+  if (sidebar.classList.contains("hide")) {
+    btn.textContent = "☰";
+  } else {
+    btn.textContent = "✖";
+  }
+
+});

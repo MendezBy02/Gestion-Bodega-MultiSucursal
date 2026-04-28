@@ -1,14 +1,4 @@
 /* ================================
-   SIDEBAR
-================================ */
-.sidebar {
-  width: 250px;
-  background: linear-gradient(180deg, #1e3a8a, #1e40af);
-  color: white;
-  padding: 20px;
-}
-
-/* ================================
    LOGO
 ================================ */
 .logo {
@@ -18,10 +8,12 @@
   margin-bottom: 30px;
 }
 
-.logo-box {
+.logo-img {
   width: 40px;
   height: 40px;
-  background: #d1d5db;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
   border-radius: 10px;
 }
 
@@ -32,15 +24,6 @@
 .logo p {
   font-size: 12px;
   opacity: 0.7;
-}
-
-.logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain; /* mejor para logos */
-  background: white;
-  padding: 5px;
-  border-radius: 10px;
 }
 
 /* ================================
@@ -54,16 +37,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
   padding: 12px;
   border-radius: 12px;
   margin-bottom: 10px;
+
   cursor: pointer;
   transition: 0.2s;
-}
-
-.sidebar li i {
-  width: 20px;
-  height: 20px;
 }
 
 .sidebar li:hover {
@@ -74,4 +54,40 @@
   background: #e5e7eb;
   color: #1e3a8a;
   font-weight: bold;
+}
+
+/* ICONOS */
+.sidebar li i {
+  width: 20px;
+  height: 20px;
+}
+
+/* ================================
+   RESPONSIVE EXTRA
+================================ */
+@media (max-width: 768px) {
+
+  .sidebar {
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  }
+
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #1e3a8a, #1e40af);
+  color: white;
+  padding: 20px;
+
+  /* 🔥 animación suave */
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* oculto */
+.sidebar.hide {
+  transform: translateX(-100%);
 }

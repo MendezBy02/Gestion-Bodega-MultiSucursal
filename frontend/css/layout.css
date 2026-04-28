@@ -1,5 +1,5 @@
 /* ================================
-   RESET Y BASE GENERAL
+   RESET
 ================================ */
 * {
   margin: 0;
@@ -13,96 +13,17 @@ body {
 }
 
 /* ================================
-   CONTENEDOR PRINCIPAL
+   LAYOUT
 ================================ */
 .container {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* ================================
-   CONTENIDO PRINCIPAL
-================================ */
 .main {
   flex: 1;
-  padding: 30px;
-}
-
-/* ================================
-   HEADER
-================================ */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.header h1 {
-  font-size: 26px;
-}
-
-.user {
-  font-size: 14px;
-  color: #333;
-}
-
-/* ================================
-   GRID PRINCIPAL
-================================ */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* ================================
-   PANEL GENERAL
-================================ */
-.panel {
-  background: white;
   padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.panel h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-/* ITEMS INTERNOS */
-.item {
-  background: #f9fafb;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.item p {
-  font-weight: 600;
-}
-
-.item span {
-  font-size: 12px;
-  color: #666;
-}
-
-.item strong {
-  display: block;
-  margin-top: 5px;
-}
-
-/* ================================
-   ANIMACIONES GENERALES
-================================ */
-section {
-  animation: fade 0.3s ease;
-}
-
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* ================================
@@ -112,13 +33,12 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 
-  /* 🔥 NUEVO */
   background: white;
   padding: 10px 15px;
   border-radius: 12px;
-  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
@@ -126,18 +46,12 @@ section {
 .topbar-left {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-/* BOTONES */
-.menu-btn, .close-btn {
-  font-size: 20px;
+/* BOTÓN MENU */
+.menu-btn {
+  font-size: 22px;
   cursor: pointer;
-}
-
-/* OCULTAR UNO SEGÚN ESTADO */
-.close-btn {
-  display: none;
 }
 
 /* DERECHA */
@@ -147,18 +61,20 @@ section {
   gap: 10px;
 }
 
+/* USUARIO */
 .user-info {
   display: flex;
-  flex-direction: column; 
-  align-items: flex-end; 
+  flex-direction: column;
+  align-items: flex-end;
   font-size: 13px;
 }
 
 .user-info small {
-  color: #666;
   font-size: 11px;
+  color: #666;
 }
 
+/* AVATAR */
 .avatar {
   width: 35px;
   height: 35px;
@@ -172,38 +88,74 @@ section {
 }
 
 /* ================================
-   SIDEBAR OCULTO
+   ANIMACIONES
 ================================ */
-.sidebar.oculto {
-  width: 0;
-  padding: 0;
-  overflow: hidden;
+section {
+  animation: fade 0.3s ease;
 }
 
-.sidebar.oculto * {
-  display: none;
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ================================
-   CAMBIO DE BOTONES
+   RESPONSIVE (CLAVE 🔥)
 ================================ */
-.sidebar.oculto ~ .main .menu-btn {
-  display: inline;
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
 }
 
-.sidebar.oculto ~ .main .close-btn {
-  display: none;
-}
-
-.main .menu-btn {
-  display: none;
-}
-
-.main .close-btn {
-  display: inline;
-}
-
-/* ANIMACIÓN */
+/* 🔥 CONTROL GLOBAL SIDEBAR */
 .sidebar {
-  transition: all 0.3s ease;
+  transform: translateX(0);
+}
+
+/* CUANDO SE OCULTA */
+.sidebar.hide {
+  transform: translateX(-250px);
+}
+
+/* ================================
+   AJUSTE DINÁMICO MAIN
+================================ */
+
+.main {
+  flex: 1;
+  padding: 20px;
+
+  /* 🔥 animación suave */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* cuando sidebar visible */
+@media (min-width: 769px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .sidebar:not(.hide) + .main {
+    margin-left: 0;
+  }
+
+  /* cuando sidebar oculto */
+  .sidebar.hide + .main {
+    margin-left: -250px;
+  }
 }
