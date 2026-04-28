@@ -1,4 +1,6 @@
+// =============================
 // CAMBIO DE SECCIONES
+// =============================
 function mostrarSeccion(id, element) {
 
   const secciones = ["dashboard", "inventario", "transferencias", "sucursales"];
@@ -19,7 +21,9 @@ function mostrarSeccion(id, element) {
   document.getElementById("sidebar").classList.remove("show");
 }
 
+// =============================
 // BOTÓN SIDEBAR
+// =============================
 const btn = document.getElementById("toggleBtn");
 const sidebar = document.getElementById("sidebar");
 
@@ -28,10 +32,6 @@ btn.addEventListener("click", () => {
   sidebar.classList.toggle("hide");
 
   // cambiar icono
-  if (sidebar.classList.contains("hide")) {
-    btn.textContent = "☰";
-  } else {
-    btn.textContent = "✖";
-  }
+  btn.textContent = sidebar.classList.contains("hide") ? "☰" : "✖";
 
 });

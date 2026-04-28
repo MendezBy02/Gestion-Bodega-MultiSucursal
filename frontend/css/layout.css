@@ -13,7 +13,7 @@ body {
 }
 
 /* ================================
-   LAYOUT
+   LAYOUT GENERAL
 ================================ */
 .container {
   display: flex;
@@ -24,6 +24,7 @@ body {
 .main {
   flex: 1;
   padding: 20px;
+  transition: margin-left 0.3s ease-in-out;
 }
 
 /* ================================
@@ -34,36 +35,29 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: white;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+
   padding: 10px 15px;
   border-radius: 12px;
   margin-bottom: 20px;
 
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-
-  backdrop-filter: blur(6px); 
 }
 
-/* IZQUIERDA */
-.topbar-left {
-  display: flex;
-  align-items: center;
-}
-
-/* BOTÓN MENU */
+/* BOTÓN */
 .menu-btn {
   font-size: 22px;
   cursor: pointer;
 }
 
-/* DERECHA */
+/* USUARIO */
 .topbar-right {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* USUARIO */
 .user-info {
   display: flex;
   flex-direction: column;
@@ -90,6 +84,62 @@ body {
 }
 
 /* ================================
+   SIDEBAR CONTROL (PC)
+================================ */
+.sidebar {
+  transform: translateX(0);
+}
+
+/* ocultar en PC */
+.sidebar.hide {
+  transform: translateX(-250px);
+}
+
+/* mover contenido en PC */
+@media (min-width: 769px) {
+  .sidebar.hide + .main {
+    margin-left: -250px;
+  }
+}
+
+/* ================================
+   MÓVIL
+================================ */
+@media (max-width: 768px) {
+
+  /* topbar fija arriba */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3000;
+  }
+
+  .main {
+    padding-top: 70px;
+  }
+
+  /* sidebar oculto */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 250px;
+    height: calc(100% - 60px);
+    z-index: 2000;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  /* abrir sidebar */
+  .sidebar.show {
+    transform: translateX(0);
+  }
+}
+
+/* ================================
    ANIMACIONES
 ================================ */
 section {
@@ -99,82 +149,4 @@ section {
 @keyframes fade {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-/* ================================
-   RESPONSIVE (CLAVE 🔥)
-================================ */
-@media (max-width: 768px) {
-
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    z-index: 1000;
-
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-
-  .sidebar.show {
-    transform: translateX(0);
-  }
-
-}
-
-/* 🔥 CONTROL GLOBAL SIDEBAR */
-.sidebar {
-  transform: translateX(0);
-}
-
-/* CUANDO SE OCULTA */
-.sidebar.hide {
-  transform: translateX(-250px);
-}
-
-/* ================================
-   AJUSTE DINÁMICO MAIN
-================================ */
-
-.main {
-  flex: 1;
-  padding: 20px;
-
-  /* 🔥 animación suave */
-  transition: margin-left 0.3s ease-in-out;
-}
-
-/* cuando sidebar visible */
-@media (min-width: 769px) {
-  .main {
-    margin-left: 0;
-  }
-
-  .sidebar:not(.hide) + .main {
-    margin-left: 0;
-  }
-
-  /* cuando sidebar oculto */
-  .sidebar.hide + .main {
-    margin-left: -250px;
-  }
-}
-
-/* 🔥 SOLUCIÓN: TOPBAR ENCIMA DEL SIDEBAR EN MÓVIL */
-@media (max-width: 768px) {
-
-  .topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 3000; /* MÁS ALTO QUE SIDEBAR */
-  }
-
-  .main {
-    padding-top: 70px; /* para que no tape contenido */
-  }
-
 }
