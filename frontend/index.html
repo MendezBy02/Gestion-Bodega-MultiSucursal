@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexoTech Bodega</title>
+
+  <!-- estilos -->
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+
+  <!-- iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="layout" id="layout">
+
+  <!-- sidebar -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- logo -->
+    <div class="logo">
+      <img src="img/logo.png">
+    </div>
+
+    <!-- menú -->
+    <ul>
+      <li><a href="#" onclick="mostrar('dashboard')"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a></li>
+      <li><a href="#" onclick="mostrar('inventario')"><i data-lucide="package"></i><span>Inventario</span></a></li>
+      <li><a href="#" onclick="mostrar('sucursales')"><i data-lucide="building"></i><span>Sucursales</span></a></li>
+      <li><a href="#" onclick="mostrar('transferencias')"><i data-lucide="arrow-left-right"></i><span>Transferencias</span></a></li>
+      <li><a href="#" onclick="mostrar('usuarios')"><i data-lucide="user-plus"></i><span>Usuarios</span></a></li>
+    </ul>
+
+    <!-- footer -->
+    <div class="sidebar-footer">
+      <a href="#" onclick="logout()">
+        <i data-lucide="log-out"></i>
+        <span>Cerrar Sesión</span>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- contenido -->
+  <div class="main" id="main">
+
+    <!-- topbar -->
+    <header class="topbar">
+      <button id="toggleBtn" class="toggle-btn">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <!-- usuario -->
+      <div class="user-info">
+        <i data-lucide="user"></i>
+        <small>Admin</small>
+      </div>
+    </header>
+
+    <!-- contenido principal -->
+   <section class="content">
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="view">
+    <h1>Dashboard</h1>
+  </div>
+
+  <!-- INVENTARIO -->
+  <div id="inventario" class="view" style="display:none;">
+    <h1>Inventario</h1>
+  </div>
+
+  <!-- SUCURSALES -->
+  <div id="sucursales" class="view" style="display:none;">
+    <h1>Sucursales</h1>
+  </div>
+
+  <!-- TRANSFERENCIAS -->
+  <div id="transferencias" class="view" style="display:none;">
+    <h1>Transferencias</h1>
+  </div>
+
+  <!-- USUARIOS -->
+  <div id="usuarios" class="view" style="display:none;">
+    <h1>Usuarios</h1>
+  </div>
+
+</section>
+
+  </div>
+
+</div>
+
+<!-- scripts -->
+<script src="js/app.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
