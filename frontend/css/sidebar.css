@@ -1,0 +1,93 @@
+/* sidebar base */
+.sidebar{
+  width: 260px;
+
+  min-height: 100vh;   
+  height: 100%;
+
+  background: linear-gradient(180deg, #1e3a8a, #1e40af);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* logo */
+.logo{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.logo img{
+  width: 80px;
+  transition: 0.3s;
+}
+
+/* lista */
+.sidebar ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* items */
+.sidebar ul li a{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 20px;
+  margin: 6px 10px;        /* 🔥 espacio entre items */
+  border-radius: 12px;
+
+  color: white;
+  text-decoration: none;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+/* efecto deslizante */
+.sidebar ul li a::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+
+  transition: 0.3s;
+}
+
+/* hover efecto */
+.sidebar ul li a:hover::before{
+  left: 0;
+}
+
+/* hover general */
+.sidebar ul li a:hover{
+  transform: translateX(5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* colapsado */
+.layout.collapsed .sidebar span{
+  display: none;
+}
+
+/* centrar iconos */
+.layout.collapsed .sidebar ul li a{
+  justify-content: center;
+}
+
+/* animación logo */
+.layout.collapsed .logo img{
+  width: 50px;
+}
