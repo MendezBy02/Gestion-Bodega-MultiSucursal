@@ -121,34 +121,41 @@ localStorage.setItem(
 );
 
 
+//Correo
 
-    await fetch(
-  "/api/login-email",
+await emailjs.send(
+
+  "service_taidoow",
+
+  "template_ngl808b",
+
   {
 
-    method: "POST",
+    to_email:
+      data.email,
 
-    headers: {
+    nombre:
+      data.nombre,
+    
+    fecha:
+      new Date().toLocaleString(
 
-      "Content-Type":
-        "application/json"
+        "es-SV",
 
-    },
+        {
 
-    body: JSON.stringify({
+          timeZone:
+            "America/El_Salvador"
 
-      nombre:
-        data.nombre,
+        }
 
-      correo:
-        data.email,
-
-      rol:
-        data.rol.nombre,
-    })
+      )
 
   }
+
 );
+
+
 
 
     // redirección
