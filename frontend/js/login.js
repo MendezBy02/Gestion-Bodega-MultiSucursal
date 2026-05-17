@@ -95,20 +95,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // guardar sesión
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
+const usuario = {
 
-        id: data.idusuario,
+  id: data.idusuario,
 
-        nombre: data.nombre,
+  nombre: data.nombre,
 
-        rol: data.rol.nombre,
+  email: data.email,
 
-        sucursal: data.idsucursal
+  rol: data.rol.nombre,
 
-      })
-    );
+  sucursal: data.idsucursal
+
+};
+
+
+// verificar
+console.log(usuario);
+
+
+// guardar
+localStorage.setItem(
+  "user",
+  JSON.stringify(usuario)
+);
 
 
 
