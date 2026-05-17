@@ -114,6 +114,13 @@ async function cargarStockBajo(){
 
   data.forEach(item => {
 
+    if(
+      !item.producto ||
+      !item.ubicacion
+    ){
+      return;
+    }
+
     lista.innerHTML += `
 
       <div class="stock-item">
@@ -163,7 +170,7 @@ async function cargarTransferenciasDashboard(){
       detalletransferencia(
         cantidad,
 
-        producto(
+        producto:idproducto(
           nombre
         )
       ),
@@ -201,10 +208,18 @@ async function cargarTransferenciasDashboard(){
   data.forEach(item => {
 
     const detalle =
-      item.detalletransferencia[0];
+      item.detalletransferencia?.[0];
+
+    if(
+      !detalle ||
+      !detalle.producto
+    ){
+      return;
+    }
 
     const estado =
-      item.estadotransferencia.nombre;
+      item.estadotransferencia?.nombre ||
+      "Sin estado";
 
     let clase = "";
 
@@ -237,11 +252,11 @@ async function cargarTransferenciasDashboard(){
 
           <small>
 
-            ${item.sucursal_origen.nombre}
+            ${item.sucursal_origen?.nombre || "Sin origen"}
 
             →
 
-            ${item.sucursal_destino.nombre}
+            ${item.sucursal_destino?.nombre || "Sin destino"}
 
             (${detalle.cantidad} unidades)
 
@@ -306,11 +321,11 @@ async function cargarResumenSucursales(){
 
     let productos = new Set();
 
-    sucursal.bodega.forEach(bodega => {
+    sucursal.bodega?.forEach(bodega => {
 
-      bodega.ubicacion.forEach(ubicacion => {
+      bodega.ubicacion?.forEach(ubicacion => {
 
-        ubicacion.inventario.forEach(item => {
+        ubicacion.inventario?.forEach(item => {
 
           total += item.cantidad;
 
