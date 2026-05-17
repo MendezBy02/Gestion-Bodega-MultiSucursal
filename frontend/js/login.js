@@ -123,37 +123,50 @@ localStorage.setItem(
 
 //Correo
 
-await emailjs.send(
+try {
 
-  "service_taidoow",
+  await emailjs.send(
 
-  "template_ngl808b",
+    "service_taidoow",
 
-  {
+    "template_ngl808b",
 
-    to_email:
-      data.email,
+    {
 
-    nombre:
-      data.nombre,
-    
-    fecha:
-      new Date().toLocaleString(
+      to_email:
+        data.email,
 
-        "es-SV",
+      nombre:
+        data.nombre,
 
-        {
+      fecha:
+        new Date().toLocaleString(
 
-          timeZone:
-            "America/El_Salvador"
+          "es-SV",
 
-        }
+          {
 
-      )
+            timeZone:
+              "America/El_Salvador"
 
-  }
+          }
 
-);
+        )
+
+    }
+
+  );
+
+}
+
+catch(error){
+
+  console.log(
+    "Error correo:",
+    error
+  );
+
+}
 
 
 
