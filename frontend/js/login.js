@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data.rol.nombre,
 
       sucursal:
-        data.sucursal.nombre
+        data.idsucursal
 
     })
 
