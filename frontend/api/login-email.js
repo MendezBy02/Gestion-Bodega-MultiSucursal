@@ -144,13 +144,6 @@ export default async function handler(req, res){
                 font-size:16px;
               ">
 
-                <strong>
-                  Rol:
-                </strong>
-
-                ${rol}
-
-              </p>
               
               <p style="
                 margin:10px 0;
