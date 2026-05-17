@@ -151,22 +151,7 @@ export default async function handler(req, res){
                 ${rol}
 
               </p>
-
-
-              <p style="
-                margin:10px 0;
-                font-size:16px;
-              ">
-
-                <strong>
-                  Sucursal:
-                </strong>
-
-                ${sucursal}
-
-              </p>
-
-
+              
               <p style="
                 margin:10px 0;
                 font-size:16px;
