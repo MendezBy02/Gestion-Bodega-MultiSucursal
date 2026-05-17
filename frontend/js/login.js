@@ -120,57 +120,6 @@ localStorage.setItem(
   JSON.stringify(usuario)
 );
 
-
-//Correo
-
-try {
-
-  await emailjs.send(
-
-    "service_taidoow",
-
-    "template_ngl808b",
-
-    {
-
-      to_email:
-        data.email,
-
-      nombre:
-        data.nombre,
-
-      fecha:
-        new Date().toLocaleString(
-
-          "es-SV",
-
-          {
-
-            timeZone:
-              "America/El_Salvador"
-
-          }
-
-        )
-
-    }
-
-  );
-
-}
-
-catch(error){
-
-  console.log(
-    "Error correo:",
-    error
-  );
-
-}
-
-
-
-
     // redirección
     
     window.location.href = "dashboard.html";
