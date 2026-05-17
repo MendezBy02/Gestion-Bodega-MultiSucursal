@@ -162,3 +162,20 @@ button:hover {
   font-size: 12px;
   opacity: 0.9;
 }
+
+.logo-img{
+
+  width: 95px;
+
+  height: 95px;
+
+  object-fit: contain;
+
+  margin-bottom: 12px;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.25);
+
+}
