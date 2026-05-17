@@ -40,7 +40,7 @@ export default async function handler(req, res){
         'NexoTech <onboarding@resend.dev>',
 
       to:
-        correo,
+         "antonio.escobarby02@gmail.com",,
 
       subject:
         'Inicio de sesión detectado',
