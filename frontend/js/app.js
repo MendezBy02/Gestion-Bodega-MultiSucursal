@@ -132,6 +132,17 @@ if(id === "dashboard"){
   actualizarDashboard();
 
 }
+
+// actualizar inventario
+if(id === "inventario"){
+
+  if(typeof iniciarInventario === "function"){
+
+    iniciarInventario();
+
+  }
+
+}
   // cerrar móvil
   if (window.innerWidth <= 768) {
 
