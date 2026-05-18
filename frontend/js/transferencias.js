@@ -994,8 +994,10 @@ async function completarTransferencia(id){
 
   mostrarToast(
     "Transferencia completada"
+    
   );
 
+  await cargarInventario();
 }
 
 
