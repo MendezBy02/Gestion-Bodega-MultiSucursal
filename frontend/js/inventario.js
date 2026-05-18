@@ -197,13 +197,18 @@ async function cargarSucursalesFiltro(){
 
   data.forEach(sucursal => {
 
-    select.innerHTML += `
-      <option value="${sucursal.nombre}">
-        ${sucursal.nombre}
-      </option>
-    `;
+  const nombreLimpio =
+    sucursal.nombre
+      .replace("Bodega ", "")
+      .trim();
 
-  });
+  select.innerHTML += `
+    <option value="${nombreLimpio}">
+      ${nombreLimpio}
+    </option>
+  `;
+
+});
 
 }
 
