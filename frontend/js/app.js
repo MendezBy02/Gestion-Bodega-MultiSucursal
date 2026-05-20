@@ -143,6 +143,17 @@ if(id === "inventario"){
   }
 
 }
+
+// actualizar transferencias
+if(id === "transferencias"){
+
+  if(typeof cargarTransferencias === "function"){
+
+    cargarTransferencias();
+
+  }
+
+}
   // cerrar móvil
   if (window.innerWidth <= 768) {
 
