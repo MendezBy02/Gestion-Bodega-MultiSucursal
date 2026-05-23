@@ -91,8 +91,7 @@ toggleBtn.addEventListener("click", () => {
     // abrir/cerrar sidebar
     layout.classList.toggle("collapsed");
 
-    // si está colapsado = menu
-    // si está abierto = X
+    // icono pc
     toggleBtn.innerHTML =
       layout.classList.contains("collapsed")
         ? '<i data-lucide="menu"></i>'
