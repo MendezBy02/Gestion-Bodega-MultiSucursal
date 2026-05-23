@@ -79,8 +79,6 @@ toggleBtn.addEventListener("click", () => {
    // pc
   toggleBtn.innerHTML =
     layout.classList.contains("collapsed")
-      ? '<i data-lucide="menu"></i>'
-      : '<i data-lucide="x"></i>';
     
 
   }
