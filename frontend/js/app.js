@@ -78,6 +78,7 @@ toggleBtn.addEventListener("click", () => {
 
     // pc
     layout.classList.toggle("collapsed");
+    layout.classList.toggle("active");
 
   }
 
