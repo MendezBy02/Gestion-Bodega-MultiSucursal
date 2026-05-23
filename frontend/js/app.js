@@ -116,7 +116,7 @@ function mostrar(id) {
 
 if(
   id === "usuarios" &&
-  usuario.rol !== "admin"
+  usuario.rol !== "Administrador"
 ){
 
   alert(
