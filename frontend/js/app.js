@@ -77,7 +77,6 @@ toggleBtn.addEventListener("click", () => {
   } else {
 
    // pc
-  toggleBtn.innerHTML =
     layout.classList.contains("collapsed")
     
 
