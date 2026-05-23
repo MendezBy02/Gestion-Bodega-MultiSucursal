@@ -222,7 +222,7 @@ if(usuarioSesion){
 
   if(
     usuarioSesion.rol ===
-    "admin"
+    "Administrador"
   ){
 
     // menú usuarios
