@@ -67,23 +67,42 @@ toggleBtn.addEventListener("click", () => {
   const isMobile =
     window.innerWidth <= 768;
 
-  // móvil
+  // ======================
+  // MOBILE
+  // ======================
   if (isMobile) {
 
     sidebar.classList.toggle("active");
-
     layout.classList.toggle("active");
 
-  } else {
-
-   // pc
-  toggleBtn.innerHTML =
-    layout.classList.contains("collapsed")
-      ? '<i data-lucide="menu"></i>'
-      : '<i data-lucide="x"></i>';
-    
+    // icono móvil
+    toggleBtn.innerHTML =
+      sidebar.classList.contains("active")
+        ? '<i data-lucide="x"></i>'
+        : '<i data-lucide="menu"></i>';
 
   }
+
+  // ======================
+  // PC
+  // ======================
+  else {
+
+    // abrir/cerrar sidebar
+    layout.classList.toggle("collapsed");
+
+    // si está colapsado = menu
+    // si está abierto = X
+    toggleBtn.innerHTML =
+      layout.classList.contains("collapsed")
+        ? '<i data-lucide="menu"></i>'
+        : '<i data-lucide="x"></i>';
+
+  }
+
+  lucide.createIcons();
+
+});
 
   // cambiar icono
   toggleBtn.innerHTML =
