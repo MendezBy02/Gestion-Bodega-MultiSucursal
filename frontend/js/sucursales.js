@@ -342,6 +342,28 @@ let sucursalEditando = null;
 
 async function editarSucursal(id){
 
+  const usuario =
+    JSON.parse(
+      localStorage.getItem("user")
+    );
+
+  // =====================================
+  // VALIDAR GERENTE
+  // =====================================
+
+  if(
+    usuario.rol === "Gerente" &&
+    usuario.sucursal != id
+  ){
+
+    mostrarToast(
+      "Solo puedes editar tu sucursal"
+    );
+
+    return;
+
+  }
+
   sucursalEditando = id;
 
   const modal =
@@ -351,7 +373,6 @@ async function editarSucursal(id){
 
   modal.style.display = "flex";
 
-
   // buscar sucursal
   const { data, error } = await db
 
@@ -359,10 +380,12 @@ async function editarSucursal(id){
 
     .select("*")
 
-    .eq("idsucursal", id)
+    .eq(
+      "idsucursal",
+      id
+    )
 
     .single();
-
 
   // error
   if(error){
@@ -377,17 +400,14 @@ async function editarSucursal(id){
 
   }
 
-
   // llenar inputs
   document.getElementById(
     "editNombreSucursal"
   ).value = data.nombre;
 
-
   document.getElementById(
     "editDireccionSucursal"
   ).value = data.direccion;
-
 
   document.getElementById(
     "editContactoSucursal"
