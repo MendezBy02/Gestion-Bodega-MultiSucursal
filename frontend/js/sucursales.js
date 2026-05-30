@@ -268,16 +268,37 @@ function renderSucursales(data){
 
 
             <!-- EDITAR -->
-            <button
-              class="btn-edit"
-              onclick="editarSucursal(${sucursal.idsucursal})"
-            >
+            ${
+  JSON.parse(
+    localStorage.getItem("user")
+  )?.rol === "Administrador"
 
-              <i data-lucide="pencil"></i>
+  ||
 
-              Editar
+  JSON.parse(
+    localStorage.getItem("user")
+  )?.sucursal === sucursal.idsucursal
 
-            </button>
+  ?
+
+  `
+    <button
+      class="btn-edit"
+      onclick="editarSucursal(${sucursal.idsucursal})"
+    >
+
+      <i data-lucide="pencil"></i>
+
+      Editar
+
+    </button>
+  `
+
+  :
+
+  ""
+
+}
 
 
             <!-- ELIMINAR -->
