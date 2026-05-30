@@ -281,16 +281,31 @@ function renderSucursales(data){
 
 
             <!-- ELIMINAR -->
-            <button
-              class="btn-delete"
-              onclick="eliminarSucursal(${sucursal.idsucursal})"
-            >
+            ${
+  JSON.parse(localStorage.getItem("user"))?.rol
+  ===
+  "Administrador"
 
-              <i data-lucide="trash-2"></i>
+  ?
 
-              Eliminar
+  `
+    <button
+      class="btn-delete"
+      onclick="eliminarSucursal(${sucursal.idsucursal})"
+    >
 
-            </button>
+      <i data-lucide="trash-2"></i>
+
+      Eliminar
+
+    </button>
+  `
+
+  :
+
+  ""
+
+}
 
           </div>
 
@@ -481,11 +496,33 @@ async function guardarEdicionSucursal(){
 
 
 
+
+
+  
 // =========================================
 // ELIMINAR SUCURSAL
 // =========================================
 
 async function eliminarSucursal(id){
+
+  const usuario =
+    JSON.parse(
+      localStorage.getItem("user")
+    );
+
+  // SOLO ADMINISTRADOR
+  if(
+    !usuario ||
+    usuario.rol !== "Administrador"
+  ){
+
+    mostrarToast(
+      "No tienes permisos para eliminar sucursales"
+    );
+
+    return;
+
+  }
 
   mostrarConfirmacion(
 
@@ -499,8 +536,10 @@ async function eliminarSucursal(id){
 
         .delete()
 
-        .eq("idsucursal", id);
-
+        .eq(
+          "idsucursal",
+          id
+        );
 
       // error
       if(error){
@@ -515,16 +554,13 @@ async function eliminarSucursal(id){
 
       }
 
-
       // éxito
       mostrarToast(
         "Sucursal eliminada"
       );
 
-
       // recargar
       cargarSucursales();
-
 
       if(
         typeof cargarDashboard
